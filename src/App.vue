@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h3>肯达信企业管理顾问有限公司</h3>
     <router-view />
   </div>
 </template>
@@ -10,4 +9,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.test {
+  width: 200px;
+}
 </style>
