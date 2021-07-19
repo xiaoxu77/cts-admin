@@ -1,11 +1,18 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Login from '@/views/login'
+// import Login from '@/views/login'
+
 const routes = [
   {
+    path: '/:catchAll(.*)',
+    name: '404',
+    component: () => import('@/views/login')
+  },
+  {
     path: '/login',
-    name: 'login',
-    component: Login
+    name: 'Login',
+    component: () => import('@/views/login')
   }
+
   // {
   //   path: '/',
   //   name: 'Home',
