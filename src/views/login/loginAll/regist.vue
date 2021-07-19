@@ -5,32 +5,28 @@
       <div class="imgtest">
         <img class="logo" src="@/assets/logo.png" alt="logo">
       </div>
-      <el-form-item class="changeLogin">
-        <el-button-group class="changeLoginBtn">
-          <el-button class="left" @click="changePasswordLogin">密码登录</el-button>
-          <el-button class="right" @click="changeMessageLogin">短信登录</el-button>
-        </el-button-group>
-    </el-form-item>
       <el-form-item>
         <el-input placeholder="手机号码" prefix-icon="el-icon-mobile-phone" v-model="user.phone" clearable></el-input>
       </el-form-item>
       <el-form-item>
+        <el-input class="codeWidth" placeholder="短信验证码" prefix-icon="el-icon-lock" v-model="user.phonecode"></el-input>
+        <el-button class="forgetPassword">获取验证码</el-button>
+      </el-form-item>
+            <el-form-item>
         <el-input placeholder="密码" prefix-icon="el-icon-lock" v-model="user.password" show-password></el-input>
       </el-form-item>
-      <el-form-item>
-        <el-input class="codeWidth" placeholder="验证码" prefix-icon="el-icon-postcard" v-model="user.code"></el-input>
-        <el-image class="codeImg" :src="src"></el-image>
+            <el-form-item>
+        <el-input placeholder="确认密码" prefix-icon="el-icon-lock" v-model="user.password2" show-password></el-input>
       </el-form-item>
       <el-form-item>
-        <el-checkbox v-model="checked">记住密码</el-checkbox>
-        <el-button type="text" class="forgetPassword" @click="forgetpassword">忘记密码</el-button>
+        <el-checkbox v-model="checked">同意用户协议</el-checkbox>
       </el-form-item>
       <el-form-item>
         <el-button class="loginbtn" type="primary" @click="onSubmit">登录</el-button>
       </el-form-item>
       <el-form-item>
         <el-button type="text">社交帐号登录</el-button>
-        <el-button type="text" class="forgetPassword" @click="regist">注册账号</el-button>
+        <el-button type="text" class="forgetPassword" @click="changePasswordLogin">用已有账号登录</el-button>
       </el-form-item>
       <div class="test">
         <img class="imgtest" src="@/assets/court.png" alt="court">
@@ -49,8 +45,9 @@ export default {
       checked: false,
       user: {
         phone: '',
+        phonecode: '',
         password: '',
-        code: ''
+        password2: ''
       }
     }
   },
@@ -61,9 +58,9 @@ export default {
   methods: {
     onSubmit () {
       console.log(this.user)
-      if (this.user.phone === '17608432590' && this.user.password === '752592761' && this.user.code === '123456') {
-        this.$router.push('/home')
-      }
+      // if (this.user.phone === '17608432590' && this.user.password === '752592761' && this.user.code === '123456') {
+      //   this.$router.push('/home')
+      // }
     },
     changeMessageLogin () {
       this.$router.push('/messagelogin')
@@ -73,9 +70,6 @@ export default {
     },
     forgetpassword () {
       this.$router.push('/forgetpassword')
-    },
-    regist () {
-      this.$router.push('/regist')
     }
   }
 }

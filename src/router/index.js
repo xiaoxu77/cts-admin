@@ -11,6 +11,26 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: () => import('@/views/login')
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: () => import('@/views/home')
+  },
+  {
+    path: '/messagelogin',
+    name: 'Messagelogin',
+    component: () => import('@/views/login/loginAll/messagelogin')
+  },
+  {
+    path: '/forgetpassword',
+    name: 'ForgetPassword',
+    component: () => import('@/views/login/loginAll/forgetpassword')
+  },
+  {
+    path: '/regist',
+    name: 'Regist',
+    component: () => import('@/views/login/loginAll/regist')
   }
 
   // {

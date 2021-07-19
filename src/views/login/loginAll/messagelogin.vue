@@ -15,11 +15,12 @@
         <el-input placeholder="手机号码" prefix-icon="el-icon-mobile-phone" v-model="user.phone" clearable></el-input>
       </el-form-item>
       <el-form-item>
-        <el-input placeholder="密码" prefix-icon="el-icon-lock" v-model="user.password" show-password></el-input>
-      </el-form-item>
-      <el-form-item>
         <el-input class="codeWidth" placeholder="验证码" prefix-icon="el-icon-postcard" v-model="user.code"></el-input>
         <el-image class="codeImg" :src="src"></el-image>
+      </el-form-item>
+      <el-form-item>
+        <el-input class="codeWidth" placeholder="短信验证码" prefix-icon="el-icon-lock" v-model="user.phonecode"></el-input>
+        <el-button class="forgetPassword">获取验证码</el-button>
       </el-form-item>
       <el-form-item>
         <el-checkbox v-model="checked">记住密码</el-checkbox>
@@ -49,8 +50,8 @@ export default {
       checked: false,
       user: {
         phone: '',
-        password: '',
-        code: ''
+        code: '',
+        phonecode: ''
       }
     }
   },
@@ -61,9 +62,9 @@ export default {
   methods: {
     onSubmit () {
       console.log(this.user)
-      if (this.user.phone === '17608432590' && this.user.password === '752592761' && this.user.code === '123456') {
-        this.$router.push('/home')
-      }
+      // if (this.user.phone === '17608432590' && this.user.password === '752592761' && this.user.code === '123456') {
+      //   this.$router.push('/home')
+      // }
     },
     changeMessageLogin () {
       this.$router.push('/messagelogin')
