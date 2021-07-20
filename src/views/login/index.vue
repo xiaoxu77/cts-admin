@@ -39,6 +39,7 @@
   </div>
 </template>
 <script>
+import { ElMessage } from 'element-plus'
 export default {
   name: 'LoginIndex',
   components: {},
@@ -48,9 +49,9 @@ export default {
       src: '',
       checked: false,
       user: {
-        phone: '',
-        password: '',
-        code: ''
+        phone: '17608432590',
+        password: '752592761',
+        code: '123456'
       }
     }
   },
@@ -62,7 +63,18 @@ export default {
     onSubmit () {
       console.log(this.user)
       if (this.user.phone === '17608432590' && this.user.password === '752592761' && this.user.code === '123456') {
+        ElMessage.success({
+          message: '登录成功',
+          type: 'success'
+        })
         this.$router.push('/home')
+      } else {
+        this.user.phone = ''
+        this.user.password = ''
+        this.user.code = ''
+        ElMessage.error({
+          message: '登录失败，请重新输入'
+        })
       }
     },
     changeMessageLogin () {
